@@ -1,58 +1,79 @@
-🌸 Flower Classification using Transfer Learning
-This project builds an image classification model to identify flower species using Convolutional Neural Networks (CNNs) with transfer learning. The task involves fine-tuning a pre-trained image classifier on the Flowers Recognition dataset, which contains 4,317 images across 5 categories: daisy, dandelion, rose, sunflower, and tulip.
+# Flower Species Image Classification using Transfer Learning
 
-🧠 Project Overview
-Goal: Classify flower species with improved accuracy using pre-trained CNNs.
+## 🌼 Overview
 
-Dataset: 4,317 labeled flower images across 5 classes.
+This project builds a deep learning classifier using Convolutional Neural Networks (CNNs) to accurately identify five types of flowers: **daisy, dandelion, rose, sunflower, and tulip**. It applies **transfer learning** to fine-tune a pre-trained CNN (such as ResNet50 or VGG16) using the [Flowers Recognition dataset](https://www.kaggle.com/datasets/alxmamaev/flowers-recognition).
 
-#Approach:
+---
 
-Use pre-trained CNNs (e.g., ResNet50 or VGG16).
+## 📁 Dataset
 
-Replace the top layers with custom fully connected layers.
+- **Source**: [Kaggle - Flowers Recognition](https://www.kaggle.com/datasets/alxmamaev/flowers-recognition)
+- **Total Images**: ~4,317
+- **Classes**: `daisy`, `dandelion`, `rose`, `sunflower`, `tulip`
+- **Split**: 75% training / 25% testing
 
-Freeze base layers; train only classifier head.
+After downloading and extracting the dataset, ensure images are sorted into class-wise directories.
 
-Evaluate on a test split (75/25 ratio).
+---
 
-Implement in TensorFlow and PyTorch.
+## 🔍 Methodology
 
-🔧 Steps
-Data Preparation:
+### Step 1: Data Preparation
 
-Load and preprocess dataset (resizing, normalization).
+- Images resized to 224x224
+- Normalization applied
+- Labels encoded as integers (e.g., Daisy → 0, Rose → 1, etc.)
+- Dataset split into training and validation sets (75/25 split)
 
-Encode labels and split into training/testing sets.
+### Step 2: Model Selection
 
-Model Building:
+We use **transfer learning** by importing pre-trained CNNs trained on ImageNet. Supported models include:
 
-Load pre-trained model (e.g., ResNet50) without top layers.
+- ResNet50
+- VGG16
+- MobileNetV2
+- InceptionV3
 
-Add custom classifier layers.
+### Step 3: Transfer Learning
 
-Freeze feature extraction layers.
+Using **TensorFlow** or **PyTorch**:
 
-Training:
+- Load the pre-trained model (excluding the top layer)
+- Freeze the base layers
+- Add a new dense classifier head (5 units with softmax)
+- Train for ~20 epochs using Adam or SGD optimizer
 
-Use Adam or SGD optimizers.
+### Step 4: Evaluation
 
-Train for ~20 epochs with early stopping.
+- Evaluate model on the test set
+- Report:
+  - Accuracy
+  - Precision
+  - Recall
+  - F1-score
+- Visualize:
+  - Confusion Matrix
+  - Sample Predictions
 
-Evaluate using accuracy, precision, recall, F1-score.
+---
 
-Evaluation:
+## ✅ Results
 
-Plot confusion matrix.
+| Metric      | Value (Example) |
+|-------------|-----------------|
+| Accuracy    | 91.4%           |
+| Precision   | 90.7%           |
+| Recall      | 90.2%           |
+| F1-Score    | 90.4%           |
 
-Visualize model predictions.
+> Final results may vary based on model and hyperparameter tuning.
 
-📊 Results
-The fine-tuned model achieved high classification accuracy (~90%+) on the test set, demonstrating the effectiveness of transfer learning for small image datasets.
+---
 
-🚀 Future Work
-Deploy as a web app using Flask or Streamlit.
+## 🛠️ Setup Instructions
 
-Experiment with lightweight models (MobileNet).
-
-Try different data augmentation strategies.
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/yourusername/flower-classifier-cnn.git
+   cd flower-classifier-cnn
