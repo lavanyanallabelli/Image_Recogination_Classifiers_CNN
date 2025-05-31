@@ -1,7 +1,7 @@
-##🌸 Flower Classification using Transfer Learning
+🌸 Flower Classification using Transfer Learning
 This project builds an image classification model to identify flower species using Convolutional Neural Networks (CNNs) with transfer learning. The task involves fine-tuning a pre-trained image classifier on the Flowers Recognition dataset, which contains 4,317 images across 5 categories: daisy, dandelion, rose, sunflower, and tulip.
 
-#🧠 Project Overview
+🧠 Project Overview
 Goal: Classify flower species with improved accuracy using pre-trained CNNs.
 
 Dataset: 4,317 labeled flower images across 5 classes.
